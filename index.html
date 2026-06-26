@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Player Style Assessment</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+<div id="mainView">
+  <h1>Team Player Style Assessment</h1>
+  <p class="subtitle">For each question, click the options <strong>in order of priority</strong> — your first click turns dark green (most like you), second light green, third amber, and fourth light red. Click a ranked option again to deselect and re-rank.</p>
+
+  <div class="legend-row">
+    <div class="leg"><div class="leg-swatch" style="background:#085041;color:#9FE1CB">1st</div>Most like me &nbsp;·&nbsp; Strongly agree</div>
+    <div class="leg"><div class="leg-swatch" style="background:#5DCAA5;color:#04342C">2nd</div>Agree</div>
+    <div class="leg"><div class="leg-swatch" style="background:#EF9F27;color:#412402">3rd</div>Third most like me</div>
+    <div class="leg"><div class="leg-swatch" style="background:#F0997B;color:#4A1B0C">4th</div>Least like me</div>
+  </div>
+
+  <div class="prog-wrap">
+    <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+    <div class="prog-lbl" id="progLbl">0 of 18 questions fully ranked</div>
+  </div>
+
+  <div id="qList"></div>
+
+  <div class="btn-row">
+    <div style="flex:1">
+      <div class="err-msg" id="errMsg" style="display:none;text-align:left"></div>
+    </div>
+    <button class="submit-btn" onclick="submitAll()">View My Results →</button>
+  </div>
+</div>
+
+<div id="resultsView" style="display:none">
+  <div class="results-wrap">
+    <h2>Your Team Player Profile</h2>
+    <p class="sub">Scores indicate your typical behavior in a team setting. Higher scores indicate your dominant style.</p>
+    <div class="score-grid" id="scoreGrid"></div>
+    <div class="tab-row">
+      <button class="tab-btn on" id="tBar" onclick="showTab('bar')">Column Chart</button>
+      <button class="tab-btn" id="tRadar" onclick="showTab('radar')">Radar Chart</button>
+    </div>
+    <div class="chart-wrap" id="barWrap">
+      <canvas id="barChart" role="img" aria-label="Column chart of your leadership style scores">Your leadership style scores.</canvas>
+    </div>
+    <div class="chart-wrap radar-wrap" id="radarWrap" style="display:none">
+      <canvas id="radarChart" role="img" aria-label="Radar chart of your leadership style scores">Your leadership style scores on radar.</canvas>
+    </div>
+    <div class="desc-box" id="descBox"></div>
+    <div style="text-align:center">
+      <button class="reset-btn" onclick="resetAll()">← Retake Assessment</button>
+    </div>
+    <div class="footer-note">Leadership Style Assessment · Generated May 14, 2026</div>
+  </div>
+</div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
